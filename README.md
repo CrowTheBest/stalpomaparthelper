@@ -35,7 +35,7 @@ Put the maps back and take next maps, they will be renamed according to the sequ
 ## TODO
 Here listed things I'm thinking on and/or want to implement
 
-- Auto copy fix, when it takes <27 empty maps and it gets stuck after renaming
+- <s>Auto copy fix, when it takes <27 empty maps and it gets stuck after renaming</s>  ig it fixed
 - Always take and put in a shulker a full stack of maps, if AutoNamer enabled
 
 # What is SMI?
