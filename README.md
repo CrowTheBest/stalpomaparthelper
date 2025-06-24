@@ -1,46 +1,6 @@
 # stalpomaparthelper
 A client side mapart utility mod designed for 2b2t mapart enthusiasts!
 
-# Crow patches
-
- <b> I make some patches, especially for 2b2t. 
- They may be broken in the singleplayer or work on the other servers not as good as on 2b2t</b> <br>
-
-[`discord`|`telegram`] --> @CrowTheBest
-
-<hr>
-
-### Copying maparts
-- Inventory actions reduced by half!
-- Empty maps are now taken from the whole inventory, not just the hotbar.
-- The copier checks if you have enough empty maps BEFORE copying the shulker!
-
-### Inventory actions
-- The number of packets is reduced (when possible) by checking if the target slot is empty.
-
-### Inventory desync
-- Fixed desync when moving items to/from a shulker or copying maps
-
-### Delay
-- now the delay between inventory actions can be changed using `/delay value` command
-
-Through testing, I found that the safe number of packets per tick is around 3. 
-A delay of 20 milliseconds should be fine. Try to use lower values!
-
-
-## TODO
-Here listed things I'm thinking on and/or want to implement
-
-- Always take and put in a shulker a full stack of maps, if AutoNamer enabled
-- Rewrite autoRename, fixing rare desyncs
-- Add "mapart sorting". It should take & put maparts according to the name sequence
-- Improve number of packet reduction
-
-In theory, it's possible to reduce further the number of packets. Mb improve moveOne if the number of objects in the "from slot" stack is 1, but for this, the slot assignment must be empty or the same item must be stored as in "fromSlot"
-<br> Simply put, `fromSlot.getCount() < 3 && fromSlot == toSlot`
-<br> This is one of the ideas
-
-
 # About
 This mod was made because I am too lazy to manually copy 2000+ (probably a lot more since writing this) unique maps more than once. Some of the features include: map copier, auto locker, map downloader, and a duplicate checker.
 
@@ -104,7 +64,8 @@ Make sure that you have all the maps loaded client side. You can do this by turn
 1. Have shulker(s) full of maps of your complete mapart IN ORDER GOING RIGHT THEN DOWN, an anvil, and enough xp / xp bottles to name the maps
 2. Toggle auto namer with numpad 7
 3. Run the /nameMap command with your maps dimensions and name <br>
-   example: `/nameMap 25 35 [{x}, {y}] The True Kings`
+   `/nameMap x y incrementY name` <br>
+   example: `/nameMap 25 35 true [{x}, {y}] The True Kings`
 4. Open the next shulker in order to take out the maps
 5. Make sure you have at least the same amount of levels as maps from shulker
 6. Open an anvil to auto name the maps
@@ -114,8 +75,11 @@ Make sure that you have all the maps loaded client side. You can do this by turn
 
 <br>**Important note:** <br>
    If you want to continue renaming process somewhere in the middle of your mapart,
-   take the previous renamed maps and open an anvil. You will be notified in chat previous indexes have been updated.
+   take the previous renamed maps and open an anvil or just open a shulker with them. You will be notified in chat "previous indexes have been updated".
    Put the maps back and take next maps, they will be renamed according to the sequence! <br>
+<br>**Increment Y:** <br>
+   `true` -> sequence y+1: `[0, 0], [0, 1], [0, 2], [0, 3], ...`<br>
+   `false` -> sequence x+1: `[0, 0], [1, 0], [2, 0], [3, 0], ...`
 
 
 # How to check for duplicates
